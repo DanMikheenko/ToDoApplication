@@ -35,7 +35,7 @@ namespace ToDo.DbRepository
             }
         }
 
-        public void Save(BindingList<ToDoModel> toDoDataList)
+        public void Save(object toDoDataList)
         {
             using (StreamWriter writer = File.CreateText(path))
             {

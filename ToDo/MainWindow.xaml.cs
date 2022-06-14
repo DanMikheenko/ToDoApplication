@@ -27,29 +27,45 @@ namespace ToDo
         public MainWindow()
         {
             InitializeComponent();
-            var dbOperations = new DbOperations("///data.json");
-
+            _toDoData = new BindingList<ToDoModel>();
+            var dbOperations = new DbOperations("data.json");
             try
             {
                 _toDoData = dbOperations.Load();
+                
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
                 this.Close();
             }
+
             
             _toDoData.ListChanged += ToDoDataOnListChanged;
+
         }
 
-        private void ToDoDataOnListChanged(object? sender, ListChangedEventArgs e)
+        private void ToDoDataOnListChanged(object sender, ListChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            if (e.ListChangedType == ListChangedType.ItemAdded||e.ListChangedType == ListChangedType.ItemChanged||e.ListChangedType == ListChangedType.ItemDeleted)
+            {
+                try
+                {
+                    var dbOperations = new DbOperations("data.json");
+                    if (sender != null) dbOperations.Save(sender);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message);
+                    Close();
+                }
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dgToDoList.ItemsSource = _toDoData;
+           
         }
     }
 }

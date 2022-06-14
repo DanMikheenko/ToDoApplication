@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="ToDo" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <DataGrid x:Name="dgToDoList" Margin="10" FontSize="16" FontWeight="Bold">
+        <DataGrid x:Name="dgToDoList" Margin="10" FontSize="16" FontWeight="Bold" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn IsReadOnly="True" Header="Дата создания" Width="180"></DataGridTextColumn>
-                <DataGridCheckBoxColumn IsReadOnly="False" Header="Статус выполнения" Width="170"></DataGridCheckBoxColumn>
-                <DataGridTextColumn IsReadOnly="False" Header="Задача" Width="*"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Path=CreationDate}" IsReadOnly="True" Header="Дата создания" Width="180"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Binding="{Binding Path=IsDone}" IsReadOnly="False" Header="Статус выполнения" Width="170"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Binding="{Binding Path=Text}" IsReadOnly="False" Header="Задача" Width="*"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
         
