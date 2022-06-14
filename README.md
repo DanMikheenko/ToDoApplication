@@ -1,3 +1,4 @@
 # ToDoApplication
 A simple ToDo WPF app, which saves data to Json
-![image](https://user-images.githubusercontent.com/93799127/173621218-6678f95c-a46f-4f49-be6c-eaa1274d34b6.png)
+![2022-06-14_18-50-59](https://user-images.githubusercontent.com/93799127/173621521-46197212-a4e8-46dc-8cc3-2efd78bd5855.png)
+
